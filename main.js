@@ -1,28 +1,39 @@
 //query selector variables go here 👇
 var meditationImage = document.querySelector('.meditation-image');
 var message = document.querySelector('.message');
+var getMessageButton = document.querySelector('.receive-button');
 
 //global variables go here 👇
-// var currentMessage;
+var currentMessage;
 var savedMessages = [];
+
 //event listeners go here 👇
+getMessageButton.addEventListener('click', getMessage);
 
 //functions and event handlers go here 👇
+function getMessage(event) {
+  event.preventDefault();
+  generateMessage();
+  renderMessage();
+  showMessage();
+}
+
 function generateMessage() {
-  var currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
-  renderMessage(currentMessage.message);
-  return currentMessage;
+  currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
 }
 
 function getRandomIndex(inputMessageList) {
   return Math.floor(Math.random() * inputMessageList.length);
 }
 
-function renderMessage(currentMessage) {
-  message.innerText = currentMessage;
-  showMessage();
+function renderMessage() {
+  message.innerText = currentMessage.message;
 }
 
+function showMessage() {
+  show(message);
+  hide(meditationImage);
+}
 function show(element) {
   element.classList.remove('hidden');
 }
@@ -30,12 +41,3 @@ function show(element) {
 function hide(element) {
   element.classList.add('hidden');
 }
-
-function showMessage() {
-  hide(meditationImage);
-  show(message);
-}
-
-//testing goes here
-// console.log(affirmations[0]);
-// console.log(mantras[5]);
