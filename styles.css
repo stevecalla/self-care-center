@@ -6,3 +6,8 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
+
+.meditation-image {
+  height: 5rem;
+  width: 5rem;
+}
