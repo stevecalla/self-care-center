@@ -22,6 +22,9 @@ function getMessage(event) {
 }
 
 function generateMessage() {
+  // var x = getRadioButtonSelected.value;
+  // currentMessage = new Message(x[getRandomIndex(x)]);
+
   if (getRadioButtonSelected.value === 'affirmations') {
     currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
   } else if (getRadioButtonSelected.value === 'mantras') {
