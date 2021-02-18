@@ -1,15 +1,14 @@
-/* font-family: 'Quicksand', sans-serif;
-COLORS
-light-yellow - #f7e4bf;
-light-blue - #78a7c6;
-dark-blue - #134d71;
-white - #ffffff;
-black - #000000;
-*/
+* {
+  border: .01em solid black;
+}
+
+/*------------MAIN PAGE LAYOUT---------------*/
 
 html {
   height: 100%;
+  font-family: 'Quicksand', sans-serif;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -27,8 +26,29 @@ body {
   );
 }
 
+/*--------------FONT COLORS--------------------*/
+h1,
+h2 {
+  color: #ffffff;
+}
+
+input, 
+p { 
+  color: #000000;
+}
+
+/*---------------RADIO BOX FORM-----------------*/
+
+
+/*---------------MEDIATION BOX------------------*/
+
 .meditation-image {
   text-align: center;
   height: 5rem;
   width: 5rem;
+}
+
+/*---------------HIDDEN CLASS--------------------*/
+.hidden {
+  diplay: none;
 }
