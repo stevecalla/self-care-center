@@ -5,7 +5,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-  
+    <h1>✨ Self Care Center ✨</h1>
+    <h2>Which type of message?</h2>
+    <form>
+      <div>
+        <input type="radio" id="choice"
+         name="selection" value="affirmation">
+        <label for="contactChoice1">affirmation</label>
+        <input type="radio" id="choice"
+         name="selection" value="mantra">
+        <label for="contactChoice2">mantra</label>
+      </div>
+      <div>
+        <button type="submit">Receive Message</button>
+      </div>
+    </form>
+    <section>
+      <img class="meditation-image" src="./assets/meditate.svg" alt="icon of person meditating">
+      <p class="message hidden">MESSAGE PLACHOLDER</p>
+    </section>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="Message.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
