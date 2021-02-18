@@ -40,12 +40,12 @@ p {
 
 /*---------------HEADER TEXT--------------------*/
 h1 {
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-size: 2rem;
 }
 
 h2 {
-  margin-top: 4rem;
+  margin-top: 5rem;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
@@ -58,10 +58,10 @@ h2 {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  border-radius: 7px;
-  height: 5rem;
+  border-radius: 8px;
+  height: 7rem;
   width: 40%;
-  margin-bottom: 5rem;
+  margin-bottom: 6.5rem;
 }
 
 .radio-button-wrapper {
@@ -71,11 +71,13 @@ h2 {
 }
 
 #choice {
-  height: 1rem;
-  width: 1rem;
+  height: 1.2rem;
+  width: 1.2rem;
 }
 
 label {
+  font-size: 1.2rem;
+  font-weight: 100;
   font-style: italic;
 }
 
@@ -86,7 +88,10 @@ button {
   margin-top: 1rem;
   margin-bottom: 0rem;
   padding: .25rem 1.5rem;
-  font-weight: 100;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 /*---------------MEDIATION BOX------------------*/
@@ -97,8 +102,8 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  border-radius: 7px;
-  height: 8rem;
+  border-radius: 8px;
+  height: 10rem;
   width: 60%;
   
 }
