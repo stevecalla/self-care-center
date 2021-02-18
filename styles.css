@@ -26,7 +26,8 @@ body {
 /*--------------FONT COLORS--------------------*/
 h1,
 h2,
-button {
+button,
+h3 {
   color: #ffffff;
 }
 
@@ -58,7 +59,8 @@ h2 {
   border-radius: 8px;
   height: 7rem;
   width: 40%;
-  margin-bottom: 6.5rem;
+  /* margin-bottom: 6.5rem; */
+  margin-bottom: 5rem;
 }
 
 .radio-button-wrapper {
@@ -92,6 +94,13 @@ button {
   font-weight: 300;
 }
 
+/*---------------RESTART MESSAGE------------------*/
+h3 {
+  margin: 0;
+  font-size: 1rem;
+  color:#134d71;
+}
+
 /*---------------MEDIATION BOX------------------*/
 .meditation-wrapper {
   border: none;
@@ -120,4 +129,8 @@ button {
 /*---------------HIDDEN CLASS--------------------*/
 .hidden {
   display: none;
+}
+
+.cloak {
+  visibility: hidden;
 }
