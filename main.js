@@ -2,13 +2,16 @@
 var meditationImage = document.querySelector('.meditation-image');
 var message = document.querySelector('.message');
 var getMessageButton = document.querySelector('.receive-button');
+var formInformation = document.querySelector('form');
+var getRadioButtonForm = document.forms[0];                             //gets radio button form
+var getRadioButtonSelected = getRadioButtonForm.elements['selection'];  //gets selected elment
 
 //global variables go here 👇
 var currentMessage;
 var savedMessages = [];
 
 //event listeners go here 👇
-getMessageButton.addEventListener('click', getMessage);
+formInformation.addEventListener('submit', getMessage);
 
 //functions and event handlers go here 👇
 function getMessage(event) {
@@ -19,7 +22,15 @@ function getMessage(event) {
 }
 
 function generateMessage() {
-  currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
+  // var selectedButtonList = getRadioButtonSelected.value;
+  // console.log(selectedButtonList)
+  // currentMessage = new Message(selectedButtonList[getRandomIndex(selectedButtonList)]);
+
+  if (getRadioButtonSelected.value === 'affirmations') {
+    currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
+  } else if (getRadioButtonSelected.value === 'mantras') {
+    currentMessage = new Message(mantras[getRandomIndex(mantras)]);
+  }
 }
 
 function getRandomIndex(inputMessageList) {
@@ -27,6 +38,7 @@ function getRandomIndex(inputMessageList) {
 }
 
 function renderMessage() {
+  // message.innerText = currentMessage.message + ' ' + getRadioButtonSelected.value;
   message.innerText = currentMessage.message;
 }
 
