@@ -43,8 +43,8 @@ function getRandomIndex(inputMessageList) {
 }
 
 function renderMessage() {
-  message.innerText = currentMessage.message + ' (' + getRadioButtonSelected.value + ')';
-  // message.innerText = currentMessage.message;
+  // message.innerText = currentMessage.message + ' (' + getRadioButtonSelected.value + ')';
+  message.innerText = currentMessage.message;
 }
 
 function populateRenderedAffirmationMantra() {
