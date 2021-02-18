@@ -11,7 +11,10 @@ var savedMessages = [];
 
 
 //functions and event handlers go here 👇
-
+function generateMessage() {
+  currentMessage = new Message(affirmations[0]);
+  return currentMessage;
+}
 
 
 //testing goes here
