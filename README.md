@@ -4,6 +4,10 @@ A [Front-End Project] by [Steve Calla](https://github.com/stevecalla)
 
 * Project Manager: [Hannah Hudson](https://github.com/hannahhch)
 
+## Index
+
+<details><summary></summary>
+
 1. [Overview](#overview)
 2. [Functionality](#functionality)
 3. [Iterations](#iterations)
@@ -11,23 +15,39 @@ A [Front-End Project] by [Steve Calla](https://github.com/stevecalla)
 5. [Contributors](#contributors)
 6. [Resources](#resources)
 
+</details>
+
 ## Overview
 
 The Self Care Center is website allows users to positive affirmations or mantras. Affirmations are thoughts of positive self-empowerment, meant to assert your self-worth. Mantras are repetive phrases that are repeated again and again during mindfulness practices.
 
 ## Website Preview
 
+<!-- <details><summary></summary> -->
+
 <img src="https://media.giphy.com/media/2uU7j76WPMNbURCAby/giphy.gif" width="100%" height="500"/>
+
+<!-- </details> -->
 
 ## Main Page View
 
+<details><summary></summary>
+
 <img width="1434" alt="Screen Shot 2021-02-18 at 5 35 21 PM" src="https://user-images.githubusercontent.com/72281855/108440049-b0219980-720f-11eb-8570-ff8aa90010c5.png">
+
+</details>
 
 ## Render Affirmation View
 
+<details><summary></summary>
+
 <img width="1429" alt="Screen Shot 2021-02-18 at 5 35 59 PM" src="https://user-images.githubusercontent.com/72281855/108440126-c6c7f080-720f-11eb-9a61-7ea6e3a28894.png">
 
+</details>
+
 ## Functionality
+
+<details><summary></summary>
 
 * Current:
   * Iteration 0: Match comp.
@@ -48,18 +68,28 @@ The Self Care Center is website allows users to positive affirmations or mantras
 * Known Issues/Bugs:
   * None at this time.
 
+</details>
+
 ## Technologies
+
+<details><summary></summary>
 
 1. HTML
 2. CSS
 3. JavaScript
 4. GitHub (website hosting and source code management)
 
+</details>
+
 ## Contributors
+
+<details><summary></summary>
 
 * Creator: [Steve Calla](https://github.com/stevecalla)
 * Formal Code Review: [Paige Vannelli](https://github.com/PaigeVannelli/PaigeVannelli)
 * Project Manager: [Hannah Hudson](https://github.com/hannahhch)
+
+</details>
 
 ## Resources
 * Project Description: https://frontend.turing.io/projects/module-1/self-care-center.html
