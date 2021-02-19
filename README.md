@@ -19,7 +19,7 @@ A [Front-End Project] by [Steve Calla](https://github.com/stevecalla)
 
 ## Overview
 
-The Self Care Center is website allows users to positive affirmations or mantras. Affirmations are thoughts of positive self-empowerment, meant to assert your self-worth. Mantras are repetive phrases that are repeated again and again during mindfulness practices.
+The Self Care Center is website that allows users to generate positive affirmations or mantras. Affirmations are thoughts of positive self-empowerment, meant to assert your self-worth. Mantras are repetive phrases that are repeated again and again during mindfulness practices.
 
 ## Website Preview
 
