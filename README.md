@@ -17,7 +17,7 @@ The Self Care Center is website allows users to positive affirmations or mantras
 
 ## Website Preview
 
-<img src="https://media.giphy.com/media/2uU7j76WPMNbURCAby/giphy.gif" width="800" height="400"/>
+<img src="https://media.giphy.com/media/2uU7j76WPMNbURCAby/giphy.gif" width="100%" height="500"/>
 
 ## Main Page View
 
