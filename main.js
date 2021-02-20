@@ -9,8 +9,6 @@ var resetMessage = document.querySelector('.reset-message');
 
 //global variables go here 👇
 var currentMessage;
-var renderedAffirmations = [];
-var renderedMantras = [];
 
 //event listeners go here 👇
 window.addEventListener('load', createMessageInstance);
@@ -27,6 +25,14 @@ function getMessage(event) {
   currentMessage.generateMessage();
   renderCurrentMessage();
   showMessage();
+  //------this eliminates duplicates-------//
+  currentMessage.populateRenderedAffirmationMantra();
+  currentMessage.removeCurrentMessageFromAffirmationMantra(); //
+  currentMessage.resetMessageAffirmations();
+  currentMessage.resetMessageMantras();
+  //-----this eliminate duplicates--------//
+  renderResetMessage();
+  revealResetMessage();
 }
 
 function selectedRadioButton() {
@@ -39,6 +45,11 @@ function selectedRadioButton() {
 
 function renderCurrentMessage() {
   message.innerText = currentMessage.message;
+}
+
+function renderResetMessage() {
+  console.log(currentMessage.resetMessage)
+  resetMessage.innerText = currentMessage.resetMessage;
 }
 
 function showMessage() {
@@ -54,124 +65,18 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
-////////////////////
-//functions and event handlers go here 👇
-// function getMessage(event) {
-//   event.preventDefault();
-//   resetMessageAffirmations();
-//   resetMessageMantras();
-//   selectedRadioButton();
-//   // generateMessage(selectedButton);
-//   // console.log(currentMessage.message)
-//   renderMessage();
-//   populateRenderedAffirmationMantra();
-//   removeCurrentMessageFromAffirmationMantra();
-//   showMessage();
-// }
+function revealResetMessage() {
+  reveal(resetMessage);
+}
 
-// function selectedRadioButton() {
-//   var selectedButton;
-//   if (getRadioButtonSelected.value === 'affirmations') {
-//     selectedButton = affirmations;
-//   } else if (getRadioButtonSelected.value === 'mantras') {
-//     selectedButton = mantras;
-//   }
-//   generateMessage(selectedButton);
-// }
+function cloakResetMessage() {
+  cloak(resetMessage);
+}
 
-// function generateMessage(selected) {
-//   currentMessage = new Message(selected[getRandomIndex(selected)]);
-// }
+function reveal(element) {
+  element.classList.remove('cloak');
+}
 
-// function getRandomIndex(inputMessageList) {
-//   return Math.floor(Math.random() * inputMessageList.length);
-// }
-
-// function renderMessage() {
-//   // message.innerText = currentMessage.message + ' (' + getRadioButtonSelected.value + ')';
-//   message.innerText = currentMessage.message;
-// }
-
-// function populateRenderedAffirmationMantra() {
-//   if (getRadioButtonSelected.value === 'affirmations') {
-//     renderedAffirmations.push(currentMessage.message);
-//   } else if (getRadioButtonSelected.value === 'mantras') {
-//       renderedMantras.push(currentMessage.message);
-//   }
-
-//   currentMessage.populateAffirmations()
-// }
-
-// function removeCurrentMessageFromAffirmationMantra() {
-//   if (getRadioButtonSelected.value === 'affirmations') {
-//     var index = affirmations.indexOf(currentMessage.message);
-//     affirmations.splice(index, 1);
-//   } else if (getRadioButtonSelected.value === 'mantras') {
-//       var index = mantras.indexOf(currentMessage.message);
-//       mantras.splice(index, 1);
-//   }
-// }
-
-// function resetMessageAffirmations() {
-//   console.log(affirmations.length);
-//   // console.log(renderResetMessage())
-  
-//   if (affirmations.length === 0) {
-//     for (var i = 0; i < renderedAffirmations.length; i++) {
-//       affirmations.push(renderedAffirmations[i]);
-//     }
-//     renderedAffirmations = [];
-//     renderResetMessage('affirmations');
-//     revealResetMessage();
-//     } else {
-//       cloakResetMessage();
-//   }
-// }
-
-// function resetMessageMantras() {
-//   // console.log(mantras.length);
-//   if (mantras.length === 0) {
-//     for (var i = 0; i < renderedMantras.length; i++) {
-//       mantras.push(renderedMantras[i]);
-//     }
-//     renderedMantras = [];
-//     renderResetMessage('mantras');
-//     revealResetMessage();
-//   } 
-//   // else {
-//   //     cloakResetMessage();
-//   // } //this added a 2nd cloak class which keeps everyting hidden
-// }
-
-// function renderResetMessage(list) {
-//   return resetMessage.innerText = `All the ${list} have been displayed. Let's start over!`;
-// }
-
-// function showMessage() {
-//   show(message);
-//   hide(meditationImage);
-// }
-
-// function show(element) {
-//   element.classList.remove('hidden');
-// }
-
-// function hide(element) {
-//   element.classList.add('hidden');
-// }
-
-// function revealResetMessage() {
-//   reveal(resetMessage);
-// }
-
-// function cloakResetMessage() {
-//   cloak(resetMessage);
-// }
-
-// function reveal(element) {
-//   element.classList.remove('cloak');
-// }
-
-// function cloak(element) {
-//   element.classList.add('cloak');
-// }
+function cloak(element) {
+  element.classList.add('cloak');
+}
