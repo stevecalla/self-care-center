@@ -60,10 +60,16 @@ function populateRenderedAffirmationMantra() {
   }
 
   currentMessage.populateAffirmations()
-
 }
 
-]]
+function removeCurrentMessageFromAffirmationMantra() {
+  if (getRadioButtonSelected.value === 'affirmations') {
+    var index = affirmations.indexOf(currentMessage.message);
+    affirmations.splice(index, 1);
+  } else if (getRadioButtonSelected.value === 'mantras') {
+      var index = mantras.indexOf(currentMessage.message);
+      mantras.splice(index, 1);
+  }
 }
 
 function resetMessageAffirmations() {
