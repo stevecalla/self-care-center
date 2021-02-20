@@ -9,95 +9,47 @@ var resetMessage = document.querySelector('.reset-message');
 
 //global variables go here 👇
 var currentMessage;
-var renderedAffirmations = [];
-var renderedMantras = [];
 
 //event listeners go here 👇
+window.addEventListener('load', createMessageInstance);
 formInformation.addEventListener('submit', getMessage);
 
 //functions and event handlers go here 👇
+function createMessageInstance() {
+  currentMessage = new Message(affirmations, mantras);
+}
+
 function getMessage(event) {
   event.preventDefault();
-  resetMessageAffirmations();
-  resetMessageMantras();
-  generateMessage();
-  // console.log(currentMessage.message)
-  renderMessage();
-  populateRenderedAffirmationMantra();
-  removeCurrentMessageFromAffirmationMantra();
+  selectedRadioButton();
+  currentMessage.generateMessage();
+  renderCurrentMessage();
   showMessage();
+  //------this eliminates duplicates-------//
+  currentMessage.populateRenderedAffirmationMantra();
+  currentMessage.removeCurrentMessageFromAffirmationMantra(); //
+  currentMessage.resetMessageAffirmations();
+  currentMessage.resetMessageMantras();
+  //-----this eliminate duplicates--------//
+  renderResetMessage();
+  revealResetMessage();
 }
 
-function generateMessage() {
+function selectedRadioButton() {
   if (getRadioButtonSelected.value === 'affirmations') {
-    currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
+    currentMessage.selectedMessageList = 'affirmations';
   } else if (getRadioButtonSelected.value === 'mantras') {
-      currentMessage = new Message(mantras[getRandomIndex(mantras)]);
+    currentMessage.selectedMessageList = 'mantras';
   }
-  // var x = getRadioButtonSelected.value;
-  // currentMessage = new Message(x[getRandomIndex(x)]);
 }
 
-function getRandomIndex(inputMessageList) {
-  return Math.floor(Math.random() * inputMessageList.length);
-}
-
-function renderMessage() {
-  // message.innerText = currentMessage.message + ' (' + getRadioButtonSelected.value + ')';
+function renderCurrentMessage() {
   message.innerText = currentMessage.message;
 }
 
-function populateRenderedAffirmationMantra() {
-  if (getRadioButtonSelected.value === 'affirmations') {
-    renderedAffirmations.push(currentMessage.message);
-  } else if (getRadioButtonSelected.value === 'mantras') {
-      renderedMantras.push(currentMessage.message);
-  }
-}
-
-function removeCurrentMessageFromAffirmationMantra() {
-  if (getRadioButtonSelected.value === 'affirmations') {
-    var index = affirmations.indexOf(currentMessage.message);
-    affirmations.splice(index, 1);
-  } else if (getRadioButtonSelected.value === 'mantras') {
-      var index = mantras.indexOf(currentMessage.message);
-      mantras.splice(index, 1);
-  }
-}
-
-function resetMessageAffirmations() {
-  console.log(affirmations.length);
-  // console.log(renderResetMessage())
-  
-  if (affirmations.length === 0) {
-    for (var i = 0; i < renderedAffirmations.length; i++) {
-      affirmations.push(renderedAffirmations[i]);
-    }
-    renderedAffirmations = [];
-    renderResetMessage('affirmations');
-    revealResetMessage();
-    } else {
-      cloakResetMessage();
-  }
-}
-
-function resetMessageMantras() {
-  // console.log(mantras.length);
-  if (mantras.length === 0) {
-    for (var i = 0; i < renderedMantras.length; i++) {
-      mantras.push(renderedMantras[i]);
-    }
-    renderedMantras = [];
-    renderResetMessage('mantras');
-    revealResetMessage();
-  } 
-  // else {
-  //     cloakResetMessage();
-  // } //this added a 2nd cloak class which keep everyting hidden
-}
-
-function renderResetMessage(list) {
-  return resetMessage.innerText = `All the ${list} have been displayed. Let's start over!`;
+function renderResetMessage() {
+  console.log(currentMessage.resetMessage)
+  resetMessage.innerText = currentMessage.resetMessage;
 }
 
 function showMessage() {
