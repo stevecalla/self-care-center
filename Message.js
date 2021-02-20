@@ -6,13 +6,16 @@ class Message {
   }
 
   populateAffirmations() {
-    // this.renderedAffirmations.push(this.message);
-
-    this.renderedAffirmations = this.renderedAffirmations + this.message;
+    this.renderedAffirmations.push(this.message);
+    console.log(this.renderedAffirmations);
+    return this.renderedAffirmations;
   }
 
   populateMatras() {
     this.renderedMantras.push(this.message);
   }
+
+  //generate random num
+  //generate message...
   
 }

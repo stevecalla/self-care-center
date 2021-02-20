@@ -20,7 +20,8 @@ function getMessage(event) {
   event.preventDefault();
   resetMessageAffirmations();
   resetMessageMantras();
-  generateMessage();
+  selectedRadioButton();
+  // generateMessage(selectedButton);
   // console.log(currentMessage.message)
   renderMessage();
   populateRenderedAffirmationMantra();
@@ -28,14 +29,18 @@ function getMessage(event) {
   showMessage();
 }
 
-function generateMessage() {
+function selectedRadioButton() {
+  var selectedButton;
   if (getRadioButtonSelected.value === 'affirmations') {
-    currentMessage = new Message(affirmations[getRandomIndex(affirmations)]);
+    selectedButton = affirmations;
   } else if (getRadioButtonSelected.value === 'mantras') {
-      currentMessage = new Message(mantras[getRandomIndex(mantras)]);
+    selectedButton = mantras;
   }
-  // var x = getRadioButtonSelected.value;
-  // currentMessage = new Message(x[getRandomIndex(x)]);
+  generateMessage(selectedButton);
+}
+
+function generateMessage(selected) {
+  currentMessage = new Message(selected[getRandomIndex(selected)]);
 }
 
 function getRandomIndex(inputMessageList) {
@@ -53,16 +58,12 @@ function populateRenderedAffirmationMantra() {
   } else if (getRadioButtonSelected.value === 'mantras') {
       renderedMantras.push(currentMessage.message);
   }
+
+  currentMessage.populateAffirmations()
+
 }
 
-function removeCurrentMessageFromAffirmationMantra() {
-  if (getRadioButtonSelected.value === 'affirmations') {
-    var index = affirmations.indexOf(currentMessage.message);
-    affirmations.splice(index, 1);
-  } else if (getRadioButtonSelected.value === 'mantras') {
-      var index = mantras.indexOf(currentMessage.message);
-      mantras.splice(index, 1);
-  }
+]]
 }
 
 function resetMessageAffirmations() {
@@ -93,7 +94,7 @@ function resetMessageMantras() {
   } 
   // else {
   //     cloakResetMessage();
-  // } //this added a 2nd cloak class which keep everyting hidden
+  // } //this added a 2nd cloak class which keeps everyting hidden
 }
 
 function renderResetMessage(list) {
