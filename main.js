@@ -91,14 +91,6 @@ function cloakResetMessage() {
   hide(resetMessage);
 }
 
-function reveal(element) {
-  element.classList.remove('cloak');
-}
-
-function cloak(element) {
-  element.classList.add('cloak');
-}
-
 function getMessageAnimation() {
   if (getRadioButtonSelected.value === 'affirmations') {
     loadAnimation.src = './assets/Ripple-3s-124px-final-affirmation.svg';

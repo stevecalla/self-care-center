@@ -76,7 +76,6 @@ h2 {
   border-radius: 10px;
   height: 7rem;
   width: 40%;
-  /* margin-bottom: 3.5rem; */
 }
 
 .radio-button-wrapper {
@@ -181,14 +180,9 @@ h3 {
 
 /*----------------LOAD MESSAGE ANIMATION-----------------*/
 
-.get-message-animation {
-  /* height: 4rem;
-  width: 4rem; */
-}
-
 /* ------------------MEDIA QUERIES-------------------- */
 @media only screen and (max-width: 700px) {
-
+  
   h1,
   h2 {
     text-align: center;
@@ -199,6 +193,7 @@ h3 {
   }
 
   .form-box {
+    border: .1rem  solid red;
     height: 150px;
     width: 250px;
     margin-bottom: 3rem;  
@@ -219,23 +214,27 @@ h3 {
 
   button {
     margin-top: 0rem;
-    margin-bottom: 0.55rem;
+  }
+  
+  button:hover {
+    margin: 0rem;
+    padding: .25rem 1.7rem;
   }
 
   .meditation-wrapper {
-    border: none;
+    border: .1rem  solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
     border-radius: 8px;
+    margin-top: 2rem;
     height: 150px;
-    width: 300px;
+    width: 255px;
   }
   
   .message {
-    /* text-align: center; */
     padding: 1.2rem;
     font-size: 1.25rem;
     font-weight: 300;
@@ -250,8 +249,29 @@ h3 {
     color:#134d71;
   }
 
+}
+
+@media screen and (min-width: 900px) { /*large screen/desktop*/
+
+  .meditation-wrapper {
+    border: .1rem  solid red;
+  }
+
+  .form-box {
+    border: .1rem  solid red;
+    height: 120px;
+    width: 500px;
+  }
+
+  .meditation-wrapper {
+    border: .1rem  solid red;
+    height: 160px;
+    width: 715px;
+  }
+  
+}
+
 /* @media only screen and (max-width: 900px) {}
-/* @media screen and (max-width: 1020px) { Large Desktop } */
 /* @media screen and (max-width: 780px) { tablet } */
 /* @media screen and (max-width: 380px) { mobile } */
 
