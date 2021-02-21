@@ -1,12 +1,22 @@
 class Message {
-  constructor(affirmations, mantras) {
-    this.affirmations = affirmations;
-    this.mantras = mantras;
+  constructor() {
+    this.affirmations = [];
+    this.mantras = [];
     this.message = message;
     this.selectedMessageList = null;
-    this.renderedAffirmations = [];
-    this.renderedMantras = [];
     this.resetMessage = null;
+  }
+
+  createAffirmationsInstance(affirmations) {
+    for (var i = 0; i < affirmations.length; i++) {
+      this.affirmations.push(affirmations[i]);
+    }
+  }
+
+  createMantrasInstance(mantras) {
+    for (var i = 0; i < mantras.length; i++) {
+      this.mantras.push(mantras[i]);
+    }
   }
 
   generateMessage() {
@@ -21,42 +31,33 @@ class Message {
     return Math.floor(Math.random() * inputMessageList.length);
   }
 
-  populateRenderedAffirmationMantra() {
-    if (this.selectedMessageList === 'affirmations') {
-      this.renderedAffirmations.push(this.message);
-    } else if (this.selectedMessageList === 'mantras') {
-        this.renderedMantras.push(this.message);
-    }
-  }
-
   removeCurrentMessageFromAffirmationMantra() {
     if (this.selectedMessageList === 'affirmations') {
       var index = this.affirmations.indexOf(this.message);
-      this.affirmations.splice(index, 1); //WHY DOES THIS ALSO SPLICE AFFIRMATIONS ARRAY?
+      this.affirmations.splice(index, 1);
     } else if (this.selectedMessageList === 'mantras') {
       var index = this.mantras.indexOf(this.message);
-      this.mantras.splice(index, 1); //WHY DOES THIS ALSO SPLICE MANTRAS ARRAY?
+      this.mantras.splice(index, 1);
     }
     console.log(this.affirmations.length, this.mantras.length);
+    console.log(affirmations.length, mantras.length);
   }  
 
-  resetMessageAffirmations() {
+  resetMessageAffirmations(affirmations) {
     this.resetMessage = null; //only need to reset once...
     if (this.affirmations.length === 0) {
-      for (var i = 0; i < this.renderedAffirmations.length; i++) {
-        this.affirmations.push(this.renderedAffirmations[i]);
+      for (var i = 0; i < affirmations.length; i++) {
+        this.affirmations.push(affirmations[i]);
       }
-      this.renderedAffirmations = [];
       this.setResetMessage('affirmations');
     } 
   }
 
-  resetMessageMantras() {
+  resetMessageMantras(mantras) {
     if (this.mantras.length === 0) {
-      for (var i = 0; i < this.renderedMantras.length; i++) {
-        this.mantras.push(this.renderedMantras[i]);
+      for (var i = 0; i < mantras.length; i++) {
+        this.mantras.push(mantras[i]);
       }
-      this.renderedMantras = [];
       this.setResetMessage('mantras');
     } 
   }

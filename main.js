@@ -16,20 +16,22 @@ formInformation.addEventListener('submit', getMessage);
 
 //functions and event handlers go here 👇
 function createMessageInstance() {
-  currentMessage = new Message(affirmations, mantras);
+  currentMessage = new Message();
+  currentMessage.createAffirmationsInstance(affirmations);
+  currentMessage.createMantrasInstance(mantras);
 }
 
 function getMessage(event) {
   event.preventDefault();
+
   selectedRadioButton();
   currentMessage.generateMessage();
   renderCurrentMessage();
   showMessage();
   //------this eliminates duplicates-------//
-  currentMessage.populateRenderedAffirmationMantra();
   currentMessage.removeCurrentMessageFromAffirmationMantra(); //
-  currentMessage.resetMessageAffirmations();
-  currentMessage.resetMessageMantras();
+  currentMessage.resetMessageAffirmations(affirmations);
+  currentMessage.resetMessageMantras(mantras);
   //-----this eliminate duplicates--------//
   renderResetMessage();
   revealResetMessage();
