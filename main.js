@@ -27,8 +27,6 @@ function getMessage(event) {
   event.preventDefault();
   selectedRadioButton();
   currentMessage.generateMessage();
-  // renderCurrentMessage();
-  // showMessage();
   //------this eliminates duplicates-------//
   currentMessage.removeCurrentMessageFromAffirmationMantra(); //
   currentMessage.resetMessageAffirmations(affirmations);
@@ -43,14 +41,9 @@ function getMessage(event) {
   show(loadAnimation);
   hide(meditationImage);
   hide(message);
-
-  setTimeout( function() {
-    hide(loadAnimation);
-    renderCurrentMessage();
-    message.classList.add('fade');
-    showMessage();
-  }, 1000);
-
+  
+  //time out function for animations
+  animation();
 }
 
 function selectedRadioButton() {
@@ -66,7 +59,7 @@ function renderCurrentMessage() {
 }
 
 function renderResetMessage() {
-  console.log(currentMessage.resetMessage) //eliminate
+  console.log('reset message = ', currentMessage.resetMessage) //eliminate
   resetMessage.innerText = currentMessage.resetMessage;
 }
 
@@ -91,6 +84,19 @@ function cloakResetMessage() {
   hide(resetMessage);
 }
 
+function fadeAnimation() {
+  message.classList.add('fade');
+}
+
+function animation() {
+  setTimeout( function() {
+    hide(loadAnimation);
+    renderCurrentMessage();
+    fadeAnimation();
+    showMessage();
+  }, 1000);
+}
+
 function getMessageAnimation() {
   if (getRadioButtonSelected.value === 'affirmations') {
     loadAnimation.src = './assets/Ripple-3s-124px-final-affirmation.svg';
@@ -106,6 +112,6 @@ function swithBackgroundGradient() {
     bodyBackground.classList.add('affirmation-gradient');
     bodyBackground.classList.remove('mantra-gradient');
   } else if (getRadioButtonSelected.value === 'mantras') {
-    bodyBackground.classList.add('mantra-gradient');
+      bodyBackground.classList.add('mantra-gradient');
   }
 }
