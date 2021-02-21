@@ -16,7 +16,9 @@ formInformation.addEventListener('submit', getMessage);
 
 //functions and event handlers go here 👇
 function createMessageInstance() {
-  currentMessage = new Message(affirmations, mantras);
+  currentMessage = new Message();
+  currentMessage.createAffirmationsInstance(affirmations);
+  currentMessage.createMantrasInstance(mantras);
 }
 
 function getMessage(event) {
@@ -26,10 +28,9 @@ function getMessage(event) {
   renderCurrentMessage();
   showMessage();
   //------this eliminates duplicates-------//
-  currentMessage.populateRenderedAffirmationMantra();
   currentMessage.removeCurrentMessageFromAffirmationMantra(); //
-  currentMessage.resetMessageAffirmations();
-  currentMessage.resetMessageMantras();
+  currentMessage.resetMessageAffirmations(affirmations);
+  currentMessage.resetMessageMantras(mantras);
   //-----this eliminate duplicates--------//
   renderResetMessage();
   revealResetMessage();
@@ -48,7 +49,7 @@ function renderCurrentMessage() {
 }
 
 function renderResetMessage() {
-  console.log(currentMessage.resetMessage)
+  console.log(currentMessage.resetMessage) //eliminate
   resetMessage.innerText = currentMessage.resetMessage;
 }
 
