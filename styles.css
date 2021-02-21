@@ -95,6 +95,7 @@ button {
 /*---------------RESTART MESSAGE------------------*/
 h3 {
   margin: 0;
+  margin-top: .2rem;
   font-size: 1rem;
   color:#134d71;
 }
@@ -131,4 +132,76 @@ h3 {
 
 .cloak {
   visibility: hidden;
+}
+
+/* ------------------MEDIA QUERIES-------------------- */
+@media only screen and (max-width: 900px) {
+  .vertical-line {
+    left: 95%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  .form-box {
+    height: 150px;
+    width: 250px;
+    margin-bottom: 3rem;  
+  }
+
+  .radio-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    height: 4.5rem;
+  }
+
+  div {
+    width: 10rem;
+  }
+
+  button {
+    margin-top: 0rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .meditation-wrapper {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: 150px;
+    width: 300px;
+  }
+  
+  .message {
+    /* text-align: center; */
+    padding: 1.2rem;
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+  h3 {
+    margin: 0;
+    margin-top: .2rem;
+    width: 15rem;
+    font-size: 1rem;
+    text-align: center;
+    color:#134d71;
+  }
+
 }
