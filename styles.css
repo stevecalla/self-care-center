@@ -110,6 +110,15 @@ button {
   font-weight: 300;
 }
 
+button:hover {
+  box-sizing: border-box;
+  background-color: #f7e4bf;
+  margin-top: .5rem;
+  padding: .5rem 2.5rem;
+  color: black;
+  font-weight: bold;
+}
+
 /*---------------RESTART MESSAGE------------------*/
 h3 {
   margin: 0;
