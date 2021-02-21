@@ -149,8 +149,25 @@ h3 {
 .message {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
+  padding: 1.2rem;
   font-size: 1.5rem;
   font-weight: 300;
+}
+
+.fade { 
+  animation: fadein 3s;
+
+}
+@keyframes fadein {
+  from {
+    opacity:.05;
+  }
+  100% {
+    opacity: 1;
+  }
+  /* to {
+    opacity:1;
+  } */
 }
 
 /*---------------HIDDEN CLASS--------------------*/

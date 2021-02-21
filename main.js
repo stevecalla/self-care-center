@@ -39,6 +39,7 @@ function getMessage(event) {
   swithBackgroundGradient();
 
   ////message load animation
+  getMessageAnimation()
   show(loadAnimation);
   hide(meditationImage);
   hide(message);
@@ -46,6 +47,7 @@ function getMessage(event) {
   setTimeout( function() {
     hide(loadAnimation);
     renderCurrentMessage();
+    message.classList.add('fade');
     showMessage();
   }, 1000);
 
@@ -82,11 +84,11 @@ function hide(element) {
 }
 
 function revealResetMessage() {
-  reveal(resetMessage);
+  show(resetMessage);
 }
 
 function cloakResetMessage() {
-  cloak(resetMessage);
+  hide(resetMessage);
 }
 
 function reveal(element) {
@@ -95,6 +97,16 @@ function reveal(element) {
 
 function cloak(element) {
   element.classList.add('cloak');
+}
+
+function getMessageAnimation() {
+  if (getRadioButtonSelected.value === 'affirmations') {
+    loadAnimation.src = './assets/Ripple-3s-124px-final-affirmation.svg';
+    loadAnimation.alt = 'getting affirmation icon';
+  } else if (getRadioButtonSelected.value === 'mantras') {
+      loadAnimation.src = './assets/Ripple-3s-124px-final-mantra.svg';
+      loadAnimation.alt = 'getting matra icon';
+  }
 }
 
 function swithBackgroundGradient() {
