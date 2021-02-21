@@ -39,8 +39,9 @@ class Message {
       var index = this.mantras.indexOf(this.message);
       this.mantras.splice(index, 1);
     }
-    console.log(this.affirmations.length, this.mantras.length); //eliminate
-    console.log(affirmations.length, mantras.length); //eliminate
+    console.log('affirmation count=', this.affirmations.length); //eliminate
+    console.log('mantra count=', this.mantras.length); //eliminate
+    // console.log(affirmations.length, mantras.length); //eliminate
   }  
 
   resetMessageAffirmations(affirmations) {

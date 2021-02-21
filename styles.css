@@ -1,7 +1,3 @@
-/* * {
-  border: .01em solid black;
-} */
-
 /*------------MAIN PAGE LAYOUT---------------*/
 
 html {
@@ -76,7 +72,6 @@ h2 {
   border-radius: 10px;
   height: 7rem;
   width: 40%;
-  /* margin-bottom: 3.5rem; */
 }
 
 .radio-button-wrapper {
@@ -110,6 +105,15 @@ button {
   font-weight: 300;
 }
 
+button:hover {
+  box-sizing: border-box;
+  background-color: #f7e4bf;
+  margin-top: .5rem;
+  padding: .5rem 2.5rem;
+  color: black;
+  font-weight: bold;
+}
+
 /*---------------RESTART MESSAGE------------------*/
 h3 {
   margin: 0;
@@ -140,8 +144,22 @@ h3 {
 .message {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
+  padding: 1.2rem;
   font-size: 1.5rem;
   font-weight: 300;
+}
+
+.fade { 
+  animation: fadein 3s;
+}
+
+@keyframes fadein {
+  from {
+    opacity:.05;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*---------------HIDDEN CLASS--------------------*/
@@ -149,84 +167,85 @@ h3 {
   display: none;
 }
 
-.cloak {
-  visibility: hidden;
-}
-
 /*----------------LOAD MESSAGE ANIMATION-----------------*/
 
-.get-message-animation {
-  /* height: 4rem;
-  width: 4rem; */
-}
-
 /* ------------------MEDIA QUERIES-------------------- */
-@media only screen and (max-width: 700px) {
-
-  h1,
-  h2 {
-    text-align: center;
-  }
-
-  h2 {
-    margin-top: 2rem;
-  }
-
-  .form-box {
-    height: 150px;
-    width: 250px;
-    margin-bottom: 3rem;  
-  }
-
-  .radio-button-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    justify-content: center;
-    align-items: center;
-    height: 4.5rem;
-  }
-
-  div {
-    width: 10rem;
-  }
-
-  button {
-    margin-top: 0rem;
-    margin-bottom: 0.55rem;
-  }
-
-  .meditation-wrapper {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 8px;
-    height: 150px;
-    width: 300px;
-  }
+  @media only screen and (max-width: 700px) {
   
-  .message {
-    /* text-align: center; */
-    padding: 1.2rem;
-    font-size: 1.25rem;
-    font-weight: 300;
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 2rem;
+    }
+
+    .form-box {
+      height: 150px;
+      width: 250px;
+      margin-bottom: 3rem;  
+    }
+
+    .radio-button-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      justify-content: center;
+      align-items: center;
+      height: 4.5rem;
+    }
+
+    div {
+      width: 10rem;
+    }
+
+    button {
+      margin-top: 0rem;
+    }
+  
+    button:hover {
+      margin: 0rem;
+      padding: .25rem 1.7rem;
+    }
+
+    .meditation-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 8px;
+      margin-top: 2rem;
+      height: 150px;
+      width: 255px;
+    }
+  
+    .message {
+      padding: 1.2rem;
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+
+    h3 {
+      margin: 0;
+      margin-top: .2rem;
+      width: 15rem;
+      font-size: 1rem;
+      text-align: center;
+      color:#134d71;
+    }
+} 
+
+  @media screen and (min-width: 900px) { /*large screen/desktop*/
+
+    .form-box {
+      height: 120px;
+       width: 500px;
+    }
+
+    .meditation-wrapper {
+      height: 160px;
+      width: 715px;
+    }
   }
-
-  h3 {
-    margin: 0;
-    margin-top: .2rem;
-    width: 15rem;
-    font-size: 1rem;
-    text-align: center;
-    color:#134d71;
-  }
-
-/* @media only screen and (max-width: 900px) {}
-/* @media screen and (max-width: 1020px) { Large Desktop } */
-/* @media screen and (max-width: 780px) { tablet } */
-/* @media screen and (max-width: 380px) { mobile } */
-
-}

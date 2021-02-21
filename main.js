@@ -27,8 +27,6 @@ function getMessage(event) {
   event.preventDefault();
   selectedRadioButton();
   currentMessage.generateMessage();
-  // renderCurrentMessage();
-  // showMessage();
   //------this eliminates duplicates-------//
   currentMessage.removeCurrentMessageFromAffirmationMantra(); //
   currentMessage.resetMessageAffirmations(affirmations);
@@ -39,16 +37,13 @@ function getMessage(event) {
   swithBackgroundGradient();
 
   ////message load animation
+  getMessageAnimation()
   show(loadAnimation);
   hide(meditationImage);
   hide(message);
-
-  setTimeout( function() {
-    hide(loadAnimation);
-    renderCurrentMessage();
-    showMessage();
-  }, 1000);
-
+  
+  //time out function for animations
+  animation();
 }
 
 function selectedRadioButton() {
@@ -64,7 +59,7 @@ function renderCurrentMessage() {
 }
 
 function renderResetMessage() {
-  console.log(currentMessage.resetMessage) //eliminate
+  console.log('reset message = ', currentMessage.resetMessage) //eliminate
   resetMessage.innerText = currentMessage.resetMessage;
 }
 
@@ -82,19 +77,34 @@ function hide(element) {
 }
 
 function revealResetMessage() {
-  reveal(resetMessage);
+  show(resetMessage);
 }
 
 function cloakResetMessage() {
-  cloak(resetMessage);
+  hide(resetMessage);
 }
 
-function reveal(element) {
-  element.classList.remove('cloak');
+function fadeAnimation() {
+  message.classList.add('fade');
 }
 
-function cloak(element) {
-  element.classList.add('cloak');
+function animation() {
+  setTimeout( function() {
+    hide(loadAnimation);
+    renderCurrentMessage();
+    fadeAnimation();
+    showMessage();
+  }, 1000);
+}
+
+function getMessageAnimation() {
+  if (getRadioButtonSelected.value === 'affirmations') {
+    loadAnimation.src = './assets/Ripple-3s-124px-final-affirmation.svg';
+    loadAnimation.alt = 'getting affirmation icon';
+  } else if (getRadioButtonSelected.value === 'mantras') {
+      loadAnimation.src = './assets/Ripple-3s-124px-final-mantra.svg';
+      loadAnimation.alt = 'getting matra icon';
+  }
 }
 
 function swithBackgroundGradient() {
@@ -102,6 +112,6 @@ function swithBackgroundGradient() {
     bodyBackground.classList.add('affirmation-gradient');
     bodyBackground.classList.remove('mantra-gradient');
   } else if (getRadioButtonSelected.value === 'mantras') {
-    bodyBackground.classList.add('mantra-gradient');
+      bodyBackground.classList.add('mantra-gradient');
   }
 }
