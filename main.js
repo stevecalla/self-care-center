@@ -23,7 +23,6 @@ function createMessageInstance() {
 
 function getMessage(event) {
   event.preventDefault();
-
   selectedRadioButton();
   currentMessage.generateMessage();
   renderCurrentMessage();
@@ -50,7 +49,7 @@ function renderCurrentMessage() {
 }
 
 function renderResetMessage() {
-  console.log(currentMessage.resetMessage)
+  console.log(currentMessage.resetMessage) //eliminate
   resetMessage.innerText = currentMessage.resetMessage;
 }
 

@@ -39,13 +39,13 @@ class Message {
       var index = this.mantras.indexOf(this.message);
       this.mantras.splice(index, 1);
     }
-    console.log(this.affirmations.length, this.mantras.length);
-    console.log(affirmations.length, mantras.length);
+    console.log(this.affirmations.length, this.mantras.length); //eliminate
+    console.log(affirmations.length, mantras.length); //eliminate
   }  
 
   resetMessageAffirmations(affirmations) {
     this.resetMessage = null; //only need to reset once...
-    if (this.affirmations.length === 0) {
+    if (!this.affirmations.length) { //changed from this.affirmations === 0; to leverage falsy value
       for (var i = 0; i < affirmations.length; i++) {
         this.affirmations.push(affirmations[i]);
       }
@@ -54,7 +54,7 @@ class Message {
   }
 
   resetMessageMantras(mantras) {
-    if (this.mantras.length === 0) {
+    if (!this.mantras.length) { //changed from this.affirmations === 0; to leverage falsy value
       for (var i = 0; i < mantras.length; i++) {
         this.mantras.push(mantras[i]);
       }
@@ -64,6 +64,6 @@ class Message {
 
   setResetMessage(list) {
     this.resetMessage = `All the ${list} have been displayed. Let's start over!`;
-}
+  }
 
 }
