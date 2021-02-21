@@ -7,6 +7,7 @@ var getRadioButtonForm = document.forms[0];                             //gets r
 var getRadioButtonSelected = getRadioButtonForm.elements['selection'];  //gets selected element
 var resetMessage = document.querySelector('.reset-message');
 var bodyBackground = document.querySelector('body');
+var loadAnimation = document.querySelector('.get-message-animation');
 
 //global variables go here 👇
 var currentMessage;
@@ -26,8 +27,8 @@ function getMessage(event) {
   event.preventDefault();
   selectedRadioButton();
   currentMessage.generateMessage();
-  renderCurrentMessage();
-  showMessage();
+  // renderCurrentMessage();
+  // showMessage();
   //------this eliminates duplicates-------//
   currentMessage.removeCurrentMessageFromAffirmationMantra(); //
   currentMessage.resetMessageAffirmations(affirmations);
@@ -36,6 +37,18 @@ function getMessage(event) {
   renderResetMessage();
   revealResetMessage();
   swithBackgroundGradient();
+
+  ////message load animation
+  show(loadAnimation);
+  hide(meditationImage);
+  hide(message);
+
+  setTimeout( function() {
+    hide(loadAnimation);
+    renderCurrentMessage();
+    showMessage();
+  }, 1000);
+
 }
 
 function selectedRadioButton() {
