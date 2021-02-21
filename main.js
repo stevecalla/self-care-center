@@ -6,6 +6,7 @@ var formInformation = document.querySelector('form');
 var getRadioButtonForm = document.forms[0];                             //gets radio button form
 var getRadioButtonSelected = getRadioButtonForm.elements['selection'];  //gets selected element
 var resetMessage = document.querySelector('.reset-message');
+var bodyBackground = document.querySelector('body');
 
 //global variables go here 👇
 var currentMessage;
@@ -34,6 +35,7 @@ function getMessage(event) {
   //-----this eliminate duplicates--------//
   renderResetMessage();
   revealResetMessage();
+  swithBackgroundGradient();
 }
 
 function selectedRadioButton() {
@@ -80,4 +82,13 @@ function reveal(element) {
 
 function cloak(element) {
   element.classList.add('cloak');
+}
+
+function swithBackgroundGradient() {
+  if (getRadioButtonSelected.value === 'affirmations') {
+    bodyBackground.classList.add('affirmation-gradient');
+    bodyBackground.classList.remove('mantra-gradient');
+  } else if (getRadioButtonSelected.value === 'mantras') {
+    bodyBackground.classList.add('mantra-gradient');
+  }
 }
