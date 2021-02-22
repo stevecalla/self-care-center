@@ -39,14 +39,11 @@ class Message {
       var index = this.mantras.indexOf(this.message);
       this.mantras.splice(index, 1);
     }
-    console.log('affirmation count=', this.affirmations.length); //eliminate
-    console.log('mantra count=', this.mantras.length); //eliminate
-    // console.log(affirmations.length, mantras.length); //eliminate
   }  
 
   resetMessageAffirmations(affirmations) {
-    this.resetMessage = null; //only need to reset once...
-    if (!this.affirmations.length) { //changed from this.affirmations === 0; to leverage falsy value
+    this.resetMessage = null;
+    if (!this.affirmations.length) {
       for (var i = 0; i < affirmations.length; i++) {
         this.affirmations.push(affirmations[i]);
       }
@@ -55,7 +52,7 @@ class Message {
   }
 
   resetMessageMantras(mantras) {
-    if (!this.mantras.length) { //changed from this.affirmations === 0; to leverage falsy value
+    if (!this.mantras.length) {
       for (var i = 0; i < mantras.length; i++) {
         this.mantras.push(mantras[i]);
       }
