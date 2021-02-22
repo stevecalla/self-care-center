@@ -1,10 +1,9 @@
 //query selector variables go here 👇
 var meditationImage = document.querySelector('.meditation-image');
 var message = document.querySelector('.message');
-// var getMessageButton = document.querySelector('.receive-button');
 var getRadioButtonInput = document.querySelector('form');
-var getRadioButtonForm = document.forms[0];                             //gets radio button form
-var getRadioButtonSelected = getRadioButtonForm.elements['selection'];  //gets selected element
+var getRadioButtonForm = document.forms[0];                             
+var getRadioButtonSelected = getRadioButtonForm.elements['selection']; 
 var resetMessage = document.querySelector('.reset-message');
 var bodyBackground = document.querySelector('body');
 var animateMessageTarget = document.querySelector('.get-message-animation');
@@ -27,21 +26,17 @@ function getMessage(event) {
   event.preventDefault();
   selectedRadioButton();
   currentMessage.generateMessage();
-  //------this eliminates duplicates-------//
   currentMessage.removeCurrentMessageFromAffirmationMantra(); //
   currentMessage.resetMessageAffirmations(affirmations);
   currentMessage.resetMessageMantras(mantras);
-  //-----this eliminate duplicates--------//
   renderResetMessage();
   revealResetMessage();
   swithBackgroundGradient();
-  ////message load animation
   animateAssetAssigment();
   show(animateMessageTarget);
   hide(meditationImage);
   hide(message);
-  //time out function for animations
-  animation();
+  renderAnimation();
 }
 
 function selectedRadioButton() {
@@ -57,7 +52,6 @@ function renderCurrentMessage() {
 }
 
 function renderResetMessage() {
-  console.log('reset message = ', currentMessage.resetMessage) //eliminate
   resetMessage.innerText = currentMessage.resetMessage;
 }
 
@@ -86,7 +80,7 @@ function fadeAnimation() {
   message.classList.add('fade');
 }
 
-function animation() {
+function renderAnimation() {
   setTimeout( function() {
     hide(animateMessageTarget);
     renderCurrentMessage();
