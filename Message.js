@@ -7,13 +7,13 @@ class Message {
     this.resetMessage = null;
   }
 
-  createAffirmationsInstance(affirmations) {
+  createAffirmationsList(affirmations) {
     for (var i = 0; i < affirmations.length; i++) {
       this.affirmations.push(affirmations[i]);
     }
   }
 
-  createMantrasInstance(mantras) {
+  createMantrasList(mantras) {
     for (var i = 0; i < mantras.length; i++) {
       this.mantras.push(mantras[i]);
     }

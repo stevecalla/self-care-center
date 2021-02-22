@@ -1,26 +1,26 @@
 //query selector variables go here 👇
 var meditationImage = document.querySelector('.meditation-image');
 var message = document.querySelector('.message');
-var getMessageButton = document.querySelector('.receive-button');
-var formInformation = document.querySelector('form');
+// var getMessageButton = document.querySelector('.receive-button');
+var getRadioButtonInput = document.querySelector('form');
 var getRadioButtonForm = document.forms[0];                             //gets radio button form
 var getRadioButtonSelected = getRadioButtonForm.elements['selection'];  //gets selected element
 var resetMessage = document.querySelector('.reset-message');
 var bodyBackground = document.querySelector('body');
-var loadAnimation = document.querySelector('.get-message-animation');
+var animateMessageTarget = document.querySelector('.get-message-animation');
 
 //global variables go here 👇
 var currentMessage;
 
 //event listeners go here 👇
 window.addEventListener('load', createMessageInstance);
-formInformation.addEventListener('submit', getMessage);
+getRadioButtonInput.addEventListener('submit', getMessage);
 
 //functions and event handlers go here 👇
 function createMessageInstance() {
   currentMessage = new Message();
-  currentMessage.createAffirmationsInstance(affirmations);
-  currentMessage.createMantrasInstance(mantras);
+  currentMessage.createAffirmationsList(affirmations);
+  currentMessage.createMantrasList(mantras);
 }
 
 function getMessage(event) {
@@ -35,13 +35,11 @@ function getMessage(event) {
   renderResetMessage();
   revealResetMessage();
   swithBackgroundGradient();
-
   ////message load animation
-  getMessageAnimation()
-  show(loadAnimation);
+  animateAssetAssigment();
+  show(animateMessageTarget);
   hide(meditationImage);
   hide(message);
-  
   //time out function for animations
   animation();
 }
@@ -90,20 +88,20 @@ function fadeAnimation() {
 
 function animation() {
   setTimeout( function() {
-    hide(loadAnimation);
+    hide(animateMessageTarget);
     renderCurrentMessage();
     fadeAnimation();
     showMessage();
   }, 1000);
 }
 
-function getMessageAnimation() {
+function animateAssetAssigment() {
   if (getRadioButtonSelected.value === 'affirmations') {
-    loadAnimation.src = './assets/Ripple-3s-124px-final-affirmation.svg';
-    loadAnimation.alt = 'getting affirmation icon';
+    animateMessageTarget.src = './assets/Ripple-3s-124px-final-affirmation.svg';
+    animateMessageTarget.alt = 'getting affirmation icon';
   } else if (getRadioButtonSelected.value === 'mantras') {
-      loadAnimation.src = './assets/Ripple-3s-124px-final-mantra.svg';
-      loadAnimation.alt = 'getting matra icon';
+      animateMessageTarget.src = './assets/Ripple-3s-124px-final-mantra.svg';
+      animateMessageTarget.alt = 'getting mantra icon';
   }
 }
 

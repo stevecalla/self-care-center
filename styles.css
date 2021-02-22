@@ -110,7 +110,7 @@ button:hover {
   background-color: #f7e4bf;
   margin-top: .5rem;
   padding: .5rem 2.5rem;
-  color: black;
+  color: #134d71;
   font-weight: bold;
 }
 
@@ -167,9 +167,7 @@ h3 {
   display: none;
 }
 
-/*----------------LOAD MESSAGE ANIMATION-----------------*/
-
-/* ------------------MEDIA QUERIES-------------------- */
+/* ------------------MEDIA QUERIES MAX WIDTH 700px SMALL SCREENS-------------------- */
   @media only screen and (max-width: 700px) {
   
     h1,
@@ -237,7 +235,9 @@ h3 {
     }
 } 
 
-  @media screen and (min-width: 900px) { /*large screen/desktop*/
+/* ------------------MEDIA QUERIES MIN WIDTH 900px LARGE SCREEN-------------------- */
+
+  @media screen and (min-width: 900px) {
 
     .form-box {
       height: 120px;
